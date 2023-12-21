@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sun times</title>
+    <link rel="stylesheet" href="styles/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/9224500948.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <header>
+
+        <button value="daylength" type="submit" class="mode-buttons pressed" id="daylength"><i
+                class="fa-solid fa-calendar-day fa-xl" style="color: #f5deb3;"></i></button>
+        <button value="sunset" type="submit" class="mode-buttons pressed" id="sunset"><i class="fa-solid fa-moon fa-xl"
+                style="color: #f5deb3;"></i></button>
+        <button value="sunrise" type="submit" class="mode-buttons pressed" id="sunrise"><i class="fa-solid fa-sun fa-xl"
+                style="color: #f5deb3;"></i></button>
+
+    </header>
+    <div class="main">
+        <div class="title">
+            <% if(!locals.timeData) { %>
+            <h1>Pick your location!</h1>
+            <% } else { %>
+
+            <h2 class="sunrise-data">Sunrise in <%= timeData.cityName %> is at <%= timeData.sunrise %></h1>
+                <h2 class="sunset-data">Sunset in <%= timeData.cityName %> is at <%= timeData.sunset %></h1>
+                    <h2 class="daylength-data">Day length in <%= timeData.cityName %> is <%= timeData.dayLength %></h1>
+                        <% } %>
+        </div>
+        <div class="fields">
+            <form action="/" method="POST">
+                <label for="city">City:</label>
+                <input type="text" name="city" id="city" placeholder="Enter a city" required>
+                <br>
+                <div class="buttons">
+                    <button class="form-button" type="submit">Find out!</button>
+                    <button class="form-button" type="button">+ Compare</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script src="styles/index.js"></script>
+
+</body>
+
+</html>
